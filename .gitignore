@@ -8,6 +8,7 @@
 # Executables
 test/test
 add/add
+hello/hello
 
 !Makefile
 !.gitignore

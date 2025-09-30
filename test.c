@@ -1,7 +1,8 @@
 #include "add/add.h"
+#include "hello/hello.h"
 
 
 int main() {
-    return(add(1, 2));
-
+    hello();
+    return 1;
 }
