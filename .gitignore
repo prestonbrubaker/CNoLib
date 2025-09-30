@@ -1,0 +1,20 @@
+# Object files
+*.o
+
+# Libraries
+*.a
+*.so
+
+# Executables
+test
+add
+*
+!Makefile
+!.gitignore
+
+# Editor backups
+*~
+
+# IDE files (if using VS Code or similar)
+.vscode/
+*.swp
