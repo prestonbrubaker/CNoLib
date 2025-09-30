@@ -5,7 +5,7 @@ LDFLAGS = -L.  # Library search path (current directory)
 
 # Library name and objects
 LIBRARY = libadd.a
-LIB_OBJS = add.o
+LIB_OBJS = add/add.o
 
 # Test program
 TARGET = test
