@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -std=c11  # Warnings and C standard
 LDFLAGS = -L.  # Library search path (current directory)
 
 # Library name and objects
-LIBRARY = libadd.a
+LIBRARY = add/libadd.a
 LIB_OBJS = add/add.o
 
 # Test program
