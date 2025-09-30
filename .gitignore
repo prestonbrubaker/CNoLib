@@ -6,8 +6,8 @@
 *.so
 
 # Executables
-test
-add
+test/test
+add/add
 
 !Makefile
 !.gitignore
