@@ -8,7 +8,7 @@
 # Executables
 test
 add
-*
+
 !Makefile
 !.gitignore
 
