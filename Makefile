@@ -1,11 +1,11 @@
 # Compiler and flags
 CC = gcc
-CFLAGS = -O2 -g -Wall -Iadd -Ihello -Itime   # Warnings, GNU C11 (enables asm), include paths for both libs
-LDFLAGS = -Ladd -Lhello -Ltime # Library search path (subdirs where libs are)
+CFLAGS = -O2 -g -Wall -Iadd -Ihello -Itime -Igelb  # Warnings, GNU C11 (enables asm), include paths for both libs
+LDFLAGS = -Ladd -Lhello -Ltime -Lgelb # Library search path (subdirs where libs are)
 
 # Library names and objects (for both add and hello)
-LIBRARIES = add/libadd.a hello/libhello.a time/libtime.a
-LIB_OBJS = add/add.o hello/hello.o time/time.o
+LIBRARIES = add/libadd.a hello/libhello.a time/libtime.a gelb/libgelb.a
+LIB_OBJS = add/add.o hello/hello.o time/time.o gelb/gelb.o
 
 # Test program
 TARGET = test
@@ -21,6 +21,8 @@ hello/libhello.a: hello/hello.o
 	ar rcs $@ $^
 time/libtime.a: time/time.o
 	ar rcs $@ $^
+gelb/libgelb.a: gelb/gelb.o
+	ar rcs $@ $^
 
 # Rule to compile object files (generic for any .c to .o in subdirs)
 %.o: %.c
@@ -28,7 +30,7 @@ time/libtime.a: time/time.o
 
 # Rule to link the test program (against both libraries)
 $(TARGET): $(SOURCES) $(LIBRARIES)
-	$(CC) $(CFLAGS) $(SOURCES) $(LDFLAGS) -ladd -lhello -ltime -o $@
+	$(CC) $(CFLAGS) $(SOURCES) $(LDFLAGS) -ladd -lgelb -lhello -ltime -o $@
 
 # Clean up generated files from both subdirs
 clean:

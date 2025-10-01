@@ -1,12 +1,13 @@
 #include "add/add.h"
 #include "hello/hello.h"
 #include "time/time.h"
+#include "gelb/gelb.h"
 
 
 
 
 int main() {
-    
+    gelb();
     struct timeval tv;  // The struct to fill with epoch time
     unsigned char buffer[16];  //8 * 2 = 16 bytes
     get_time(&tv);
@@ -41,7 +42,6 @@ int main() {
     }
 
     printChar(a);
-    printChar('\n');
 
     return 0;
 
