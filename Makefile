@@ -1,6 +1,6 @@
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Wextra -std=gnu11 -Iadd -Ihello -Itime -O0  # Warnings, GNU C11 (enables asm), include paths for both libs
+CFLAGS = -O2 -g -Wall -Iadd -Ihello -Itime   # Warnings, GNU C11 (enables asm), include paths for both libs
 LDFLAGS = -Ladd -Lhello -Ltime # Library search path (subdirs where libs are)
 
 # Library names and objects (for both add and hello)
@@ -28,7 +28,7 @@ time/libtime.a: time/time.o
 
 # Rule to link the test program (against both libraries)
 $(TARGET): $(SOURCES) $(LIBRARIES)
-	$(CC) $(SOURCES) $(LDFLAGS) -ladd -lhello -ltime -o $@
+	$(CC) $(CFLAGS) $(SOURCES) $(LDFLAGS) -ladd -lhello -ltime -o $@
 
 # Clean up generated files from both subdirs
 clean:
