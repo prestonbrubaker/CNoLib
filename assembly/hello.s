@@ -13,7 +13,7 @@
 
     # Simple HTML body (59 bytes)
     body:
-        .ascii "<html><body><h1>Hello from x86 Assembly!</h1></body></html>"
+        .ascii "<html><body><h1>WILLOH ALERT</h1></body></html>"
     body_len = . - body
 .section .text
 .globl _start
