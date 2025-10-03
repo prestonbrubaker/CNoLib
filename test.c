@@ -2,11 +2,13 @@
 #include "hello/hello.h"
 #include "time/time.h"
 #include "gelb/gelb.h"
+#include "web/web.h"
 
 
 
 
 int main() {
+    send_message("hello\n", 9043);
     gelb();
     struct timeval tv;  // The struct to fill with epoch time
     unsigned char buffer[16];  //8 * 2 = 16 bytes
@@ -42,6 +44,11 @@ int main() {
     }
 
     printChar(a);
+
+    printChar('\n');
+    hello();
+    //printNL();
+    
 
     return 0;
 
