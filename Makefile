@@ -17,26 +17,29 @@ all: $(LIBRARIES) $(TARGET)
 # Rules to build static libraries
 add/libadd.a: add/add.o
 	ar rcs $@ $^
+
 hello/libhello.a: hello/hello.o
 	ar rcs $@ $^
+
 time/libtime.a: time/time.o
 	ar rcs $@ $^
+
 gelb/libgelb.a: gelb/gelb.o
 	ar rcs $@ $^
 web/libweb.a: web/web.o
 	ar rcs $@ $^
 
-# Rule to compile object files (generic for any .c to .o in subdirs)
+# Rule to compile object files
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Rule to link the test program (against both libraries)
+# Rule to link the test program
 $(TARGET): $(SOURCES) $(LIBRARIES)
 	$(CC) $(CFLAGS) $(SOURCES) $(LDFLAGS) -ladd -lgelb -lhello -ltime -lweb -o $@
 
-# Clean up generated files from both subdirs
+# Clean up generated files
 clean:
 	rm -f $(LIB_OBJS) $(LIBRARIES) $(TARGET)
 
-# Phony targets (not actual files)
+# Phony targets
 .PHONY: all clean
